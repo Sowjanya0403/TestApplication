@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { MoviesServiceService } from '../Services/movies-service.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -12,7 +13,8 @@ public selectedLocation =[];
 public selectedLanguage =[];
 public languageList = [];
 public locationList = [];
-  constructor() { }
+public moviesList = [];
+  constructor(private moviesService:MoviesServiceService) { }
 
   ngOnInit() {
     this.dropdownSettings = {
@@ -37,9 +39,22 @@ public locationList = [];
       { id: 4, name: 'CHENNAI' }
     ];
   }
+
+  //Search Movies List
   SearchMovies(){
-    //SearchMovies
-    console.log(this.selectedLanguage);
-    console.log(this.selectedLocation);
+    let searchObj = {
+      "selectedLanguage": [],
+      "selectedLocation": []
+    };
+    this.selectedLanguage.forEach(lang =>{
+      searchObj.selectedLanguage.push(lang.name)
+    });
+    this.selectedLocation.forEach(loc =>{
+      searchObj.selectedLocation.push(loc.name)
+    });
+    this.moviesService.SearchMovieslist(searchObj).subscribe(data =>{
+      this.moviesList = data;
+      console.log(this.moviesList);
+    });
   }
 }
