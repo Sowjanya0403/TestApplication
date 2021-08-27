@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestApplication.Controllers;
@@ -23,9 +24,18 @@ namespace APIUnitTesting
         }
 
         [TestMethod]
-        public void MovieLisAPITest()
+        public async Task MovieLisAPITest()
         {
-           //Test Case
+            mockMoviesListObj = getMockResponseObject();
+            mockMoviesSearchObj = new MoviesSearchObj()
+            {
+                SelectedLanguage = new List<string>() { "HINDI" },
+                SelectedLocation = new List<string>() { "PUNE" }
+            };
+            dynamic actualInfo = await controller.GetMovieList(mockMoviesSearchObj);
+            var expected = JsonConvert.SerializeObject(mockMoviesListObj);
+            var actual = JsonConvert.SerializeObject(actualInfo.Value);
+            Assert.AreEqual(expected, actual);
         }
 
         public List<MoviesListObj> getMockResponseObject()
@@ -51,7 +61,6 @@ namespace APIUnitTesting
                     ImdbRating = "7.7"
                 }
             };
-            return mockMoviesListObj;
         }
     }
 }
