@@ -31,7 +31,7 @@ public moviesList = [];
       allowSearchFilter: true
     };
     this.languageList = [
-      { id: 1, name: 'ENGLIH' },
+      { id: 1, name: 'ENGLISH' },
       { id: 2, name: 'HINDI' },
       { id: 3, name: 'TELUGU' },
       { id: 4, name: 'TAMIL' }

@@ -7,3 +7,34 @@
       <button type="button" (click)="gotBack()" class="form-control btn btn-primary">Back</button>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-6">
+          <div class="row form-group">
+              <label class="col-sm-4" for="language">Languge</label>
+              <label class="col-sm-8" for="language">{{movieDetails.language}}</label>
+          </div>
+          <div class="row form-group">
+              <label class="col-sm-4" for="location">Location</label>
+              <label class="col-sm-8" for="location">{{movieDetails.location}}</label>
+          </div>
+          <div class="row form-group">
+              <label class="col-sm-4" for="plot">Plot</label>
+              <label class="col-sm-8" for="plot">{{movieDetails.plot}}</label>
+          </div>
+          <div class="row form-group">
+              <label class="col-sm-4" for="sound">Sound Effects</label>
+              <label class="col-sm-8" for="sound">{{movieDetails.soundEffects.join(",")}}</label>
+          </div>
+      </div>
+      <div class="col-sm-6"><img class="images" src="{{movieDetails.poster}}" /></div>`
+  </div>
+  <hr>
+  STILLS
+  <div class="row">
+      <div class="col-md-6 img-container" *ngFor="let mv of movieDetails.stills">
+          <br>
+          <img src="{{mv}}" alt="Image not found" height="250px" width="350px">
+      </div>
+  </div>
+</div>
