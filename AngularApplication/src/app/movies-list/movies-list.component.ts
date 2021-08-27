@@ -63,6 +63,7 @@ public moviesList = [];
   }
 
   navigateToDetails(data:any){
+    this.moviesService.setMovieDetails(data);
     this.router.navigateByUrl('/movieDetails');
   }
 }
