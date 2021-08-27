@@ -51,3 +51,6 @@ dotnet run
 change Directory to "TestApplication/APIUnitTesting"
 
 dotnet test
+
+
+***NOTE****  Before running Frontend , please run the Backend API , so that the APIs doesn't fail in frontend.
