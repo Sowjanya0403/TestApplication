@@ -23,4 +23,18 @@
         </div>
     </div>
     <hr>
+    <div class="row">
+        <table datatable class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Movie Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of moviesList; let i = index">
+                    <td><a [routerLink]="" (click)="navigateToDetails(data)">{{data.title}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
