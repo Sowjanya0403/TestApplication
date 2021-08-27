@@ -1,0 +1,26 @@
+<h2>MOVIES LIST</h2>
+<div class="container">
+    <div class="row">
+        <div class="row form-group">
+            <label class="col-sm-6" for="query">Search By Language</label>
+            <ng-multiselect-dropdown class="col-sm-6" [placeholder]="'Select Language'" [settings]="dropdownSettings"
+                [data]="languageList" [(ngModel)]="selectedLanguage">
+            </ng-multiselect-dropdown>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="row form-group">
+            <label class="col-sm-6" for="query">Search By Location</label>
+            <ng-multiselect-dropdown class="col-sm-6" [placeholder]="'Select Location'" [settings]="dropdownSettings"
+                [data]="locationList" [(ngModel)]="selectedLocation">
+            </ng-multiselect-dropdown>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <button type="button" (click)="SearchMovies()" class="form-control btn btn-primary">Search</button>
+        </div>
+    </div>
+    <hr>
+</div>
