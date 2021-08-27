@@ -46,6 +46,8 @@ dotnet build
 dotnet run
 
 
-4.To Run Unit Test Projetc Solution
+4.To Run Unit Test Projetc Solution, 
+
+change Directory to "TestApplication/APIUnitTesting"
 
 dotnet test
